@@ -9,9 +9,10 @@ import java.util.Scanner;
 public class Order {
 	
 	private ArrayList<Deliverable> items;
-	
+	private Payment payment;
 	public Order() {
 		items = new ArrayList<Deliverable>();
+		payment = new Payment();
 	}
 	
 	// Displays all deliverable items and allows user to pick items to order
@@ -40,6 +41,10 @@ public class Order {
 			}
 			
 		} while (userInput != 0);
+		
+		in.close();
+		
+		payment.acceptPaymentDetails();
 	}
 	
 	public void displayOrder() {
