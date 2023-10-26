@@ -81,8 +81,6 @@ public class Driver {
 			return distance;
 		}
 		
-		
-		
 	}
 	
 }

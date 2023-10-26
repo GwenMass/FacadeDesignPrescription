@@ -9,10 +9,11 @@ import java.util.Scanner;
 public class Order {
 	
 	private ArrayList<Deliverable> items;
-	private Payment payment;
+	//private Payment payment;
+	
 	public Order() {
 		items = new ArrayList<Deliverable>();
-		payment = new Payment();
+		//payment = new Payment();
 	}
 	
 	// Displays all deliverable items and allows user to pick items to order
@@ -29,7 +30,7 @@ public class Order {
 		int userInput = 1;
 		
 		do {
-			System.out.println("Enter an Item No. to order an item. Enter 0 to finish ordering.");
+			System.out.print("Enter an Item No. to order an item (enter 0 to finish ordering): ");
 			userInput = in.nextInt();
 			
 			// If input is in range and not 0, add the appropriate item to the ArrayList of ordered items
@@ -42,16 +43,15 @@ public class Order {
 			
 		} while (userInput != 0);
 		
-		in.close();
+		//in.close();
 		
-		payment.acceptPaymentDetails();
+		//payment.acceptPaymentDetails();
 	}
 	
 	public void displayOrder() {
-		
 		// Display each item and its pre-tax price
 		for(Deliverable item : items) {
-			System.out.println(item.getItemName() + " at $" + item.getPrice());
+			System.out.println(item.getItemName() + " for $" + item.getPrice());
 		}
 		
 	}

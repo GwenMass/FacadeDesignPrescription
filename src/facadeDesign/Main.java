@@ -11,7 +11,11 @@ public class Main {
 		FoodDeliveryFacade foodService = new FoodDeliveryFacade();
 		
 		// Use methods of the FoodDeliveryFacade object to complete a food delivery order
+		foodService.createOrder();
+		foodService.trackOrder();
 		
+		foodService.tipDriver();
+		foodService.rateDriver();
 	}
 	
 }
