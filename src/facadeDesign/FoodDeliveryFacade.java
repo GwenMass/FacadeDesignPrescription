@@ -1,5 +1,5 @@
 package facadeDesign;
-
+import java.util.Scanner;
 /* 	FoodDeliveryFacade.java
  * 	is the Facade Class that wraps around the collection of other classes 
  *  that each implement some functionality related to food delivery.
@@ -11,6 +11,7 @@ public class FoodDeliveryFacade {
 	private Payment payment;
 	private Driver driver;
 	private Tracking tracking;
+	Scanner in = new Scanner(System.in);
 	
 	public FoodDeliveryFacade() {
 		order = new Order();
@@ -43,11 +44,25 @@ public class FoodDeliveryFacade {
 	}
 	
 	public void tipDriver() {
+		System.out.println("Would you like to tip "+driver.getName()+ "?");
+		System.out.println("Enter the amount you would like to tip, or 0 for no tip");
+		System.out.println("15%\t18%\t20%");
+		System.out.println(.15*order.calculateOrderPrice()+"\t"+.18*order.calculateOrderPrice()+"\t"+.2*order.calculateOrderPrice());
+		double tip = in.nextDouble();
+		driver.tipDriver(tip);
 		
 	}
 	
 	public void rateDriver() {
-		
+		int rating = 0;
+		System.out.println("How would you rate your experience with " + driver.getName() + "?");
+		do {
+			System.out.println("Please give a rating of 1-5 based on your experience.");
+			rating = in.nextInt();
+			if (rating < 1 || rating > 5)
+				System.out.println("Invalid entry! Try again.");
+		}while (rating < 1 || rating > 5);
+		driver.rateDriver(rating);
 	}
 
 }

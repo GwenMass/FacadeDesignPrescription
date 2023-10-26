@@ -16,6 +16,8 @@ public class Driver {
 	private static int NUM_DRIVERS = 20;
 	private static double MIN_DISTANCE = 2, MAX_DISTANCE = 10;
 	private double driverRating = 0.0;
+	private int numRatings = 0;
+	private int totalRatings = 0;
 	private double driverTips = 0.0;
 	
 	public Driver() {
@@ -59,31 +61,17 @@ public class Driver {
 		}
 	}
 	//gets a tip for the driver
-		public void tipDriver()
+		public void tipDriver(double tip)
 		{
-			double tip = -1;
-			System.out.println("Would you like to leave a tip?"); 
-			do {
-				System.out.println("Enter the amount; Otherwise, enter zero.");
-				tip = in.nextInt();
-				if (tip < 0)
-					System.out.println("Invalid amount!");
-				}while (tip < 0);
-			this.driverTips += tip;
+			driverTips += tip;
 		}
 		//gets a rating for the driver
-		public void rateDriver()
+		public void rateDriver(int rating)
 		{
-			int rating = 0;
-			System.out.println("How would you rate your experience? 1-5");
-			do {
-				
-				rating = in.nextInt();
-				if (rating < 1 || rating > 5)
-					System.out.println("Invalid rating, try again.");
-				}while (rating < 1 || rating > 5);
+			numRatings += 1;
+			totalRatings += rating;
+			driverRating = totalRatings / numRatings;
 			
-			this.driverRating = in.nextInt();
 		}
 	}
 	
