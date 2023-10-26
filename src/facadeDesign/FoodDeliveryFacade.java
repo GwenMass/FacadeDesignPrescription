@@ -48,7 +48,7 @@ public class FoodDeliveryFacade {
 		System.out.println("Enter the amount you would like to tip, or 0 for no tip:");
 		System.out.println("15%\t18%\t20%");
 		System.out.println(
-			    String.format("%.2f\t%.2f\t%.2f",
+			    String.format("$%.2f\t$%.2f\t$%.2f",
 			        0.15 * order.calculateOrderPrice(),
 			        0.18 * order.calculateOrderPrice(),
 			        0.20 * order.calculateOrderPrice()
