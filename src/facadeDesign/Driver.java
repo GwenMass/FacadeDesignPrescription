@@ -1,6 +1,7 @@
 package facadeDesign;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -8,11 +9,14 @@ import java.util.concurrent.ThreadLocalRandom;
 * 	is a subsystem class to be wrapped around by the Facade Class
 */
 public class Driver {
-
+	
+	Scanner in = new Scanner(System.in);
 	private Person driver;
 	private ArrayList<Person> drivers;
 	private static int NUM_DRIVERS = 20;
 	private static double MIN_DISTANCE = 2, MAX_DISTANCE = 10;
+	private double driverRating = 0.0;
+	private double driverTips = 0.0;
 	
 	public Driver() {
 		generateDrivers();
@@ -53,10 +57,37 @@ public class Driver {
 			
 			drivers.add(newDriver);
 		}
-		
+	}
+	//gets a tip for the driver
+		public void tipDriver()
+		{
+			double tip = -1;
+			System.out.println("Would you like to leave a tip?"); 
+			do {
+				System.out.println("Enter the amount; Otherwise, enter zero.");
+				tip = in.nextInt();
+				if (tip < 0)
+					System.out.println("Invalid amount!");
+				}while (tip < 0);
+			this.driverTips += tip;
+		}
+		//gets a rating for the driver
+		public void rateDriver()
+		{
+			int rating = 0;
+			System.out.println("How would you rate your experience? 1-5");
+			do {
+				
+				rating = in.nextInt();
+				if (rating < 1 || rating > 5)
+					System.out.println("Invalid rating, try again.");
+				}while (rating < 1 || rating > 5);
+			
+			this.driverRating = in.nextInt();
+		}
 	}
 	
-	private class Person {
+	class Person {
 		
 		private String name;
 		private double distance;

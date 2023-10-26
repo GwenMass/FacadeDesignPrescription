@@ -27,5 +27,15 @@ private Duration estimatedTime;
 		long estimatedMinutes = (long)driver.getDistance()/25/60;
 		estimatedTime = Duration.ofMinutes(estimatedMinutes);
 	}
-	
+	//displays times for delivery tracking purposes
+	public void trackerDisplay()
+	{
+		System.out.println("The current time is : " + startTime);
+		System.out.println("Your estimated wait is...");
+		System.out.println(estimatedTime + " minutes");
+		
+		
+		System.out.println("Your food has been delivered at " + getDeliveryTime());
+		
+	}
 }
