@@ -16,6 +16,8 @@ public class Main {
 		
 		foodService.tipDriver();
 		foodService.rateDriver();
+		
+		System.out.println("\nThank you for your purchase, and enjoy your meal!");
 	}
 	
 }
