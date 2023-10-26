@@ -25,7 +25,7 @@ public enum Deliverables {
 		this.price = price;
 	}
 	
-	public String getItemDescription() {
+	public String getItemName() {
 		return itemName;
 	}
 	
