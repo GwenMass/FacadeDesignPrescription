@@ -1,5 +1,7 @@
 package facadeDesign;
 import java.util.Scanner;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 /* 	FoodDeliveryFacade.java
  * 	is the Facade Class that wraps around the collection of other classes 
  *  that each implement some functionality related to food delivery.
@@ -12,7 +14,7 @@ public class FoodDeliveryFacade {
 	private Driver driver;
 	private Tracking tracking;
 	Scanner in = new Scanner(System.in);
-	
+	DateTimeFormatter format = DateTimeFormatter.ofPattern("hh:mm");
 	public FoodDeliveryFacade() {
 		order = new Order();
 		payment = new Payment();
@@ -40,7 +42,8 @@ public class FoodDeliveryFacade {
 		
 		// Show Delivery time
 		tracking.setEstimatedTime(driver.getDistance());
-		System.out.println("Your order will arrive at " + tracking.getDeliveryTime().instant());
+		System.out.println("Current time is: " + LocalTime.now().format(format));
+		System.out.println("Your order will arrive at " + tracking.getDeliveryTime().format(format));
 	}
 	
 	public void tipDriver() {
