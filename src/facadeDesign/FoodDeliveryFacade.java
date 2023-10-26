@@ -34,8 +34,8 @@ public class FoodDeliveryFacade {
 	
 	public void trackOrder() {
 		// Show Driver information
-		System.out.println("Tracking Order...");
-		System.out.println("\nDelivery Driver \'" + driver.getName() + "\' is " + Math.round(driver.getDistance()*100.0)/100.0 + " miles away with your order.");
+		System.out.println("\nTracking Order...");
+		System.out.println("Delivery Driver \'" + driver.getName() + "\' is " + Math.round(driver.getDistance()*100.0)/100.0 + " miles away with your order.");
 		
 		// Show Delivery time
 		tracking.setEstimatedTime(driver.getDistance());
