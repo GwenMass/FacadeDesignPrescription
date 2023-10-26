@@ -40,7 +40,9 @@ public class Payment {
         if (!processed) {
             double change = (amount - orderPrice);
             System.out.println("\nProcessing payment of $" + amount + " via " + paymentType + " to " + drivingRecipient);
-            System.out.println("Your change will be: " + change);
+            System.out.println("Your change will be: "+
+            
+            String.format("$%.2f", change));
             processed = true;
         } else {
             System.out.println("Payment has already been processed.");
