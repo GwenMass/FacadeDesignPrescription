@@ -1,5 +1,6 @@
 package facadeDesign;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Payment {
@@ -38,9 +39,11 @@ public class Payment {
 
     public void processPayment() {
         if (!processed) {
-            double change = Math.round(amount - orderPrice);
+        	double change = amount - orderPrice;
+            DecimalFormat decimalFormat = new DecimalFormat("#.##");
+            String formattedChange = decimalFormat.format(change);
             System.out.println("\nProcessing payment of $" + amount + " via " + paymentType + " to " + drivingRecipient);
-            System.out.println("Your change will be: " + change);
+            System.out.println("Your change will be: $" + formattedChange);
             processed = true;
         } else {
             System.out.println("Payment has already been processed.");
