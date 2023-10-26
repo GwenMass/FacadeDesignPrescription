@@ -44,8 +44,8 @@ public class FoodDeliveryFacade {
 	}
 	
 	public void tipDriver() {
-		System.out.println("Would you like to tip "+driver.getName()+ "?");
-		System.out.println("Enter the amount you would like to tip, or 0 for no tip");
+		System.out.println("\nWould you like to tip " + driver.getName() + "?");
+		System.out.println("Enter the amount you would like to tip, or 0 for no tip:");
 		System.out.println("15%\t18%\t20%");
 		System.out.println(.15*order.calculateOrderPrice()+"\t"+.18*order.calculateOrderPrice()+"\t"+.2*order.calculateOrderPrice());
 		double tip = in.nextDouble();
@@ -55,7 +55,7 @@ public class FoodDeliveryFacade {
 	
 	public void rateDriver() {
 		int rating = 0;
-		System.out.println("How would you rate your experience with " + driver.getName() + "?");
+		System.out.println("\nHow would you rate your experience with " + driver.getName() + "?");
 		do {
 			System.out.println("Please give a rating of 1-5 based on your experience.");
 			rating = in.nextInt();
