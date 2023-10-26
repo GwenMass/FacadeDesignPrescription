@@ -6,6 +6,6 @@ package facadeDesign;
 
 public class Payment {
 	
-	private double amount;
+	private double amt;
 	
 }
